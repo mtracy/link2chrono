@@ -1,6 +1,6 @@
 #pragma once
-#include "../Item.h"
-#include "../TextureHolder.h"
+#include "Item.h"
+#include "TextureHolder.h"
 
 class Armor : public Item {
 

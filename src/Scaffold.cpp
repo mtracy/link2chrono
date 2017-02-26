@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "Scaffold.h"
 
 Scaffold::Scaffold() : m_IsSolid(false),

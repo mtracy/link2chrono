@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "Character.h"
 #include <memory>
 #include "TextureHolder.h"
@@ -88,7 +87,7 @@ std::string Character::getName()
 void Character::updateRegions()
 {
 	FloatRect r = getPosition();
-	printf("%f, %f, %f, %f\n", r.top, r.left, r.height, r.width);
+	//printf("%f, %f, %f, %f\n", r.top, r.left, r.height, r.width);
 
 	// Feet
 	m_Feet.left = r.left + 6;

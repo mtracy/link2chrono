@@ -1,7 +1,6 @@
-#include "stdafx.h"
 #include "Thomas.h"
 #include "TextureHolder.h"
-#include "Items/Armor.h"
+#include "Armor.h"
 
 Thomas::Thomas(Engine *eng)
 {

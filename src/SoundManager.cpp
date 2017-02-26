@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "SoundManager.h"
 #include <SFML/Audio.hpp>
 

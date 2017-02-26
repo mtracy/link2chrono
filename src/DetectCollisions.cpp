@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "Engine.h"
 #include <iostream>
 
@@ -61,7 +60,7 @@ bool Engine::detectCollisions(Character& character, float dtAsSeconds)
 				auto trajectory = character.getTrajectory();
 				if (character.getRight().intersects(block))
 				{
-					std::cout << "right is hitting" << std::endl;
+					//std::cout << "right is hitting" << std::endl;
 					character.stopDir(Character::Dir::Right, dtAsSeconds);
 					/*
 					if (1 * 3.1415 / 8 < trajectory && trajectory < 3 * 3.1415 / 8) {
@@ -72,7 +71,7 @@ bool Engine::detectCollisions(Character& character, float dtAsSeconds)
 				}
 				if (character.getLeft().intersects(block))
 				{
-					std::cout << "left is hitting" << std::endl;
+					//std::cout << "left is hitting" << std::endl;
 					character.stopDir(Character::Dir::Left, dtAsSeconds);
 					/*
 					if (5 * 3.1415 / 8 < trajectory && trajectory < 7 * 3.1415 / 8) {
@@ -84,7 +83,7 @@ bool Engine::detectCollisions(Character& character, float dtAsSeconds)
 				}
 				if (character.getHead().intersects(block))
 				{
-					std::cout << "head is hitting" << std::endl;
+					//std::cout << "head is hitting" << std::endl;
 					character.stopDir(Character::Dir::Up, dtAsSeconds);
 					/*
 					if (1 * 3.1415 / 8 < trajectory && trajectory < 3 * 3.1415 / 8) {

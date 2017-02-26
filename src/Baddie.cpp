@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "Baddie.h"
 #include "TextureHolder.h"
 #include <iostream>

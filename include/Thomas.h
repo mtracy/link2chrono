@@ -4,6 +4,6 @@
 class Thomas : public PlayableCharacter
 {
 public:
-	Thomas::Thomas(Engine *eng);
+	Thomas(Engine *eng);
 	bool virtual handleInput();
 };

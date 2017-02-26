@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "Engine.h"
 
 void Engine::draw()
@@ -7,7 +6,7 @@ void Engine::draw()
 	m_Window.clear(Color::White);
 	
 	// Update the shader parameters
-	m_RippleShader.setUniform("uTime", m_GameTimeTotal.asSeconds());
+	//m_RippleShader.setUniform("uTime", m_GameTimeTotal.asSeconds());
 
 	if (m_Playing)
 	{

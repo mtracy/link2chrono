@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "HUD.h"
 #include <sstream>
 
@@ -15,7 +14,7 @@ Hud::Hud()
 	// Paused
 	m_StartText.setFont(m_Font);
 	m_StartText.setCharacterSize(100);
-	m_StartText.setFillColor(Color::Black);
+	m_StartText.setColor(Color::Black);
 	m_StartText.setString("Press Enter when ready!");
 
 	// Position the text
@@ -31,14 +30,14 @@ Hud::Hud()
 	// Time
 	m_TimeText.setFont(m_Font);
 	m_TimeText.setCharacterSize(75);
-	m_TimeText.setFillColor(Color::Black);
+	m_TimeText.setColor(Color::Black);
 	m_TimeText.setPosition(resolution.x - 150, 0);
 	m_TimeText.setString("------");
 
 	// Level
 	m_LevelText.setFont(m_Font);
 	m_LevelText.setCharacterSize(75);
-	m_LevelText.setFillColor(Color::White);
+	m_LevelText.setColor(Color::White);
 	m_LevelText.setPosition(25, 0);
 	m_LevelText.setString("1");
 }

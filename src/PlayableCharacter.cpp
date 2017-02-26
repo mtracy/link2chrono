@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "PlayableCharacter.h"
 #include "Projectile.h"
 #include <iostream>

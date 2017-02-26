@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include <SFML/Graphics.hpp>
 #include "ParticleSystem.h"
 

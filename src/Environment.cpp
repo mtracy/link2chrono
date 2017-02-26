@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "Environment.h"
 #include <sstream>
 #include <fstream>
@@ -198,7 +197,7 @@ void Environment::loadOjects(){
 		for (int y = 0; y < m_LevelSize.y; y++)
 		{
 			if (m_Activatables[y][x] != nullptr) {
-				std::cout << currentVertex << std::endl;
+				//std::cout << currentVertex << std::endl;
 				// Position each vertex in the current quad
 				m_VActiv[currentVertex + 0].position =
 					Vector2f(x * TILE_SIZE, y * TILE_SIZE);
@@ -236,7 +235,7 @@ void Environment::loadOjects(){
 void Environment::setObjectVertexTexture(Vector2u position, IntRect f) {
 	size_t currentVertex = position.x * m_LevelSize.y + position.y;
 	currentVertex *= VERTS_IN_QUAD;
-	std::cout << currentVertex << std::endl;
+	//std::cout << currentVertex << std::endl;
 	m_VActiv[currentVertex + 0].texCoords =
 		Vector2f(f.left, f.top - f.height);
 

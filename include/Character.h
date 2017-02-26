@@ -35,7 +35,7 @@ public:
 	Engine *m_Eng; //lol.
 	float m_trajectory = 0;
 	
-	virtual void Character::update(float) = 0;
+	virtual void update(float) = 0;
 	float getTrajectory();
 	void addItem(std::unique_ptr<Item>);
 	float getHealth();

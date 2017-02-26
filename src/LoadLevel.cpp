@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "Engine.h"
 
 void Engine::loadLevel()
@@ -6,7 +5,7 @@ void Engine::loadLevel()
 	m_Playing = false;
 
 	// Delete the previously allocated memory
-	m_Env.clearLevel();
+	//m_Env.clearLevel();
 
 	// Load the next 2d array with the map for the level
 	// And repopulate the vertex array as well

@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "Engine.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
@@ -148,31 +147,3 @@ void Engine::update(float dtAsSeconds)
 		m_PS.update(dtAsSeconds);
 	}
 }// End of update function
-
-/*
-//detect collision between current char and current projectile
-hit = (*projiter)->getDrawable().getGlobalBounds().intersects((*chariter)->getHitBox());
-
-if (hit)
-{
-std::cout << &((*projiter)->getOwner()) << " -> ";
-std::cout << &(**chariter) << std::endl;
-}
-
-
-if (hit && (&(**chariter) != &((*projiter)->getOwner()) || (*projiter)->getCanDmgSelf()))
-{
-
-	auto baddiehealth = (*chariter)->setHealth((*chariter)->getHealth() - (*projiter)->getImpactDmg());
-	if (baddiehealth <= 0)
-	{
-		(*chariter)->setAlive(false);
-	}
-
-
-}
-else
-{
-	hit = false;
-}
-*/

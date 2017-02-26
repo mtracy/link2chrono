@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "Activatable.h"
 #include <iostream>
 #include "Engine.h"

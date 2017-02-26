@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "Menu.h"
 #include "TextureHolder.h"
 #include <iostream>
@@ -105,7 +104,7 @@ EquippedPanel::EquippedPanel() {
 	m_Font.loadFromFile("fonts/Roboto-Light.ttf");
 	m_PanelLabel.setFont(m_Font);
 	m_PanelLabel.setCharacterSize(100);
-	m_PanelLabel.setFillColor(Color::Black);
+	m_PanelLabel.setColor(Color::Black);
 	m_PanelLabel.setPosition(0, 0);
 	m_PanelLabel.setString("Equipped");
 

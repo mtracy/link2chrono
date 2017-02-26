@@ -50,7 +50,7 @@ public:
 	void select(Character::Piece);
 	void deselect(Character::Piece);
 	Character::Piece getSelectedItem();
-	void EquippedPanel::updateSlot(PlayableCharacter&, Character::Piece);
+	void updateSlot(PlayableCharacter&, Character::Piece);
 
 	
 
