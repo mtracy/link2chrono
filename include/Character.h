@@ -34,6 +34,10 @@ public:
 	Inventory m_Inventory;
 	Engine *m_Eng; //lol.
 	float m_trajectory = 0;
+	bool m_CollidingUp = false;
+	bool m_CollidingDown = false;
+	bool m_CollidingLeft = false;
+	bool m_CollidingRight = false;
 	
 	virtual void update(float) = 0;
 	float getTrajectory();
@@ -55,6 +59,12 @@ public:
 	void stopDir(Dir dir, float dtAsSeconds);
 	void setName(std::string name);
 	std::string getName();
+	void resetColliding() { m_CollidingUp = false; m_CollidingDown = false; m_CollidingLeft = false; m_CollidingRight = false;};
+
+	IntRect m_UpPosition;
+	IntRect m_DownPosition;
+	IntRect m_LeftPosition;
+	IntRect m_RightPosition;
 	
 
 private:

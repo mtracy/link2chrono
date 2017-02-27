@@ -22,8 +22,8 @@ void Engine::draw()
 		m_Window.setView(m_MainView);		
 
 		// Draw the Level
-		m_Window.draw(m_Env.m_VScaff, &m_TextureTiles);
-		m_Window.draw(m_Env.m_VActiv, &m_ObjectTiles);
+		m_Window.draw(m_Env);
+		//m_Window.draw(m_Env.m_VActiv, &m_ObjectTiles);
 
 		// Draw thomas
 		m_Window.draw(m_Thomas.getSprite());

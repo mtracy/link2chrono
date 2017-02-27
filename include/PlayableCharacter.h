@@ -26,6 +26,6 @@ public:
 	void updatePosition(float elapsedTime);
 	void update(float elapsedTime);
 	bool virtual handleInput() = 0;	
-	void activate(float angle);
+	void activate(Character::Dir);
 	
 };

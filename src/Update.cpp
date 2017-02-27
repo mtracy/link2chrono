@@ -29,6 +29,8 @@ bool checkHit(Projectile& proj, Character& charac)
 
 void Engine::update(float dtAsSeconds)
 {
+
+
 	if (m_NewLevelRequired)
 	{
 		loadLevel();
@@ -39,12 +41,19 @@ void Engine::update(float dtAsSeconds)
 	if (m_Playing && !m_InMenu)
 	{
 		// get the mouse position
+		Vector2f resolution;
+		resolution.x = VideoMode::getDesktopMode().width;
+		resolution.y = VideoMode::getDesktopMode().height;
+		FloatRect render(0, 0, 10 * resolution.x, 10 * resolution.y);
+		m_Env.update(render);
+		
 		mouseScreenPosition = Mouse::getPosition();
 
 		// Convert mouse position to world coordinates of mainView
 		mouseWorldPosition = m_Window.mapPixelToCoords(
 			Mouse::getPosition(), m_MainView);
 
+		detectCollisions(m_Thomas, dtAsSeconds);
 		// update the main player
 		m_Thomas.update(dtAsSeconds);
 		
@@ -92,7 +101,7 @@ void Engine::update(float dtAsSeconds)
 		}
 
 		// check if the main player ran in to anything
-		detectCollisions(m_Thomas, dtAsSeconds);
+		
 
 		// check all of the other characters
 		for (auto chariter = m_Chars.begin(); chariter != m_Chars.end(); chariter++)
@@ -146,4 +155,5 @@ void Engine::update(float dtAsSeconds)
 	{
 		m_PS.update(dtAsSeconds);
 	}
+
 }// End of update function

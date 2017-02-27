@@ -2,24 +2,30 @@
 #include "Scaffold.h"
 #include "Activatable.h"
 #include <SFML/Graphics.hpp>
+#include <tmx/MapLoader.h>
 
-class Environment {
+
+
+
+class Environment : public sf::Drawable  {
 public:
-	const int TILE_SIZE = 50;
-	const int VERTS_IN_QUAD = 4;
-	void clearLevel();
-	Scaffold** m_Scaffolding;
-	VertexArray m_VScaff;
-	Activatable*** m_Activatables;	
-	VertexArray m_VActiv;
-	Vector2i getLevelSize();
-	Vector2i m_LevelSize;
-	Vector2f getStartPosition();
-	Vector2f m_StartPosition;
+	Environment();
 	void loadLevel();
-	void setObjectVertexTexture(Vector2u, IntRect);
+	tmx::MapLoader m_ml;
+	virtual void draw(sf::RenderTarget &window, sf::RenderStates states) const { 
+		window.draw(m_ml);
+	};
 
-private:
-	void loadScaffold();
-	void loadOjects();
+	void update(const sf::FloatRect& rootArea) {
+		m_ml.UpdateQuadTree(rootArea);
+	}
+
+	std::vector<tmx::MapObject*> getIntersects(sf::FloatRect box) {
+		return m_ml.QueryQuadTree(box);
+	}
+
+	std::unique_ptr<sf::FloatRect> convertToFloatRect(tmx::MapObject*);	
+
+	std::vector<std::unique_ptr<sf::FloatRect>> convertToFloatRect(std::vector<tmx::MapObject*>&);
+
 };

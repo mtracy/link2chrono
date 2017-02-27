@@ -14,12 +14,10 @@ void Engine::loadLevel()
 	// Prepare the sound emitters
 	//populateEmitters(m_FireEmitters, m_ArrayLevel);
 
-	// How long is this new time limit
-	// Spawn Thomas and Bob
-	m_Thomas.spawn(m_Env.getStartPosition());
-	auto baddie = std::unique_ptr<Baddie>(new Baddie(this));
-	baddie->spawn(Vector2f(200, 110));
-	m_Chars.push_back(std::move(baddie));
+	m_Thomas.spawn(Vector2f(20 * TILE_SIZE, 10 * TILE_SIZE));//m_Env.getStartPosition());
+	//auto baddie = std::unique_ptr<Baddie>(new Baddie(this));
+	//baddie->spawn(Vector2f(200, 110));
+	//m_Chars.push_back(std::move(baddie));
 	
 
 	// Make sure this code isn't run again

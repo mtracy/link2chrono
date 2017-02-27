@@ -42,7 +42,7 @@ private:
 	// The Hud
 	Menu m_Menu;
 
-	static const int TILE_SIZE = 50;
+	static const int TILE_SIZE = 32;
 	static const int VERTS_IN_QUAD = 4;
 
 	// The force pushing the characters down
@@ -130,7 +130,7 @@ public:
 	}
 
 	Activatable *getActive(int x, int y) {
-		return m_Env.m_Activatables[y][x];
+		return nullptr;
 	}
 
 	static const int getTileSize() {
@@ -138,7 +138,7 @@ public:
 	}
 
 	void setObjectVertexTexture(Vector2u v, IntRect r) {
-		m_Env.setObjectVertexTexture(v, r);
+		//m_Env.setObjectVertexTexture(v, r);
 	}
 
 

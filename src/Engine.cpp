@@ -1,4 +1,6 @@
 #include "Engine.h"
+#include <sstream>
+#include <iostream>
 
 
 Engine::Engine()
@@ -15,6 +17,7 @@ Engine::Engine()
 
 	// Initialize the full screen view
 	m_MainView.setSize(resolution);
+	m_MainView.zoom(.5);
 	m_HudView.reset(
 		FloatRect(0, 0, resolution.x, resolution.y));
 	
@@ -69,6 +72,11 @@ void Engine::run()
 		input();
 		update(dtAsSeconds);
 		draw();
+
+		const float time = 1.f / clock.getElapsedTime().asSeconds();
+		//std::stringstream stream;
+		//std::cout << "Current fps: " << time << std::endl;
+		//m_Window.setTitle(stream.str());
 	}
 }
 

@@ -10,7 +10,7 @@ void Chest::activate(Character& actor, Environment *env) {
 		actor.addItem(std::move(m_Contents));
 		m_Filled = false;
 		auto empty = IntRect(50, 50, 50, 50);
-		env->setObjectVertexTexture(m_Position, empty);
+		//env->setObjectVertexTexture(m_Position, empty);
 	}
 }
 

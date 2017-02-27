@@ -139,16 +139,20 @@ void Character::stopDir(Dir dir, float dtAsSeconds)
 	switch (dir)
 	{
 	case Character::Down:
-		m_Position.y -= m_Speed * dtAsSeconds;
+		//m_Position.y -= m_Speed * dtAsSeconds;
+		m_CollidingDown = true;
 		break;
 	case Character::Up:
-		m_Position.y += m_Speed * dtAsSeconds;
+		//m_Position.y += m_Speed * dtAsSeconds;
+		m_CollidingUp = true;
 		break;
 	case Character::Left:
-		m_Position.x += m_Speed * dtAsSeconds;
+		//m_Position.x += m_Speed * dtAsSeconds;
+		m_CollidingLeft = true;
 		break;
 	case Character::Right:
-		m_Position.x -= m_Speed * dtAsSeconds;
+		//m_Position.x -= m_Speed * dtAsSeconds;
+		m_CollidingRight = true;
 		break;
 	default:
 		break;

@@ -11,8 +11,15 @@ Thomas::Thomas(Engine *eng)
 	m_Eng = eng;
 
 	m_Sprite = Sprite(TextureHolder::GetTexture(
-		"graphics/alchemist.png"));
-	m_Origin = Vector2f(25, 25);
+		"graphics/characters/mychar.png"));
+
+	m_UpPosition = IntRect(0, 4 * 64, 64, 64);
+	m_DownPosition = IntRect(0, 6 * 64, 64, 64);
+	m_LeftPosition = IntRect(0, 5 * 64, 64, 64);
+	m_RightPosition = IntRect(0, 7 * 64, 64, 64);
+
+	m_Sprite.setTextureRect(m_DownPosition);
+	m_Origin = Vector2f(32, 32);
 	m_Inventory.addWeapon(std::shared_ptr<Weapon>(new Melee()));
 	m_Inventory.addArmor(std::shared_ptr<Armor>(new HeadArmor()));
 	m_Inventory.addArmor(std::shared_ptr<Armor>(new ChestArmor()));

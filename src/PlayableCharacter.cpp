@@ -6,28 +6,45 @@
 
 using ProjVec = std::vector<std::unique_ptr<Projectile>>;
 
+Character::Dir dirFromRads(float rads) {
+	float pi = 3.1415926;
+	if (rads > pi / 4 && rads <= 3 * pi / 4) {
+		return Character::Dir::Up;
+	}
+	else if (rads > 3 * pi / 4 && rads <= 5 * pi / 4) {
+		return Character::Dir::Right;
+	}
+	else if (rads > 5 * pi / 4 && rads <= 7 * pi / 4) {
+		return Character::Dir::Down;
+	}
+	else {
+		return Character::Dir::Left;
+	}
+
+}
+
 
 void PlayableCharacter::updatePosition(float elapsedTime) {
 	int ydel(0);
 	int xdel(0);
-	float speed(m_Speed);	
+	float speed(m_Speed);
 
-	if (m_UpPressed)
+	if (m_UpPressed && !m_CollidingUp)
 	{
 		ydel--;
 	}
 
-	if (m_DownPressed)
+	if (m_DownPressed && !m_CollidingDown)
 	{
 		ydel++;
 	}
 
-	if (m_RightPressed)
+	if (m_RightPressed && !m_CollidingRight)
 	{
 		xdel++;
 	}
 
-	if (m_LeftPressed)
+	if (m_LeftPressed && !m_CollidingLeft)
 	{
 		xdel--;
 	}
@@ -51,7 +68,33 @@ void PlayableCharacter::update(float elapsedTime)
 		m_Eng->mouseWorldPosition.x - m_Position.x) + 3.1415;
 
 	updatePosition(elapsedTime);
+	resetColliding();
 	getRHItem()->update(elapsedTime);
+
+	auto dirfacing = dirFromRads(rads);
+
+	updateRegions();
+
+	// Move the sprite into position
+	m_Sprite.setPosition(m_Position);
+	
+	switch (dirfacing) {
+		case Character::Dir::Up:
+			m_Sprite.setTextureRect(m_UpPosition);
+			break;
+		case Character::Dir::Down:
+			m_Sprite.setTextureRect(m_DownPosition);
+			break;
+		case Character::Dir::Left:
+			m_Sprite.setTextureRect(m_LeftPosition);
+			break;
+		case Character::Dir::Right:
+			m_Sprite.setTextureRect(m_RightPosition);
+			break;
+		default:
+			m_Sprite.setTextureRect(m_DownPosition);
+			break;
+	}
 	
 
 	if (m_SpacePressed)
@@ -84,44 +127,23 @@ void PlayableCharacter::update(float elapsedTime)
 	}
 
 	if (m_EPressed) {
-		activate(rads);
+		activate(dirfacing);
 	}
 
 
-	// Update the rect for all body parts
-	updateRegions();
+	// Update the rect for all body parts	
 
-	// Move the sprite into position
-	m_Sprite.setPosition(m_Position);
-	
-
-	Vector2f center = getCenter();
+	//Vector2f center = getCenter();
 
 	// calculate rotation in degrees and subtract 90 for the sprite offset
-	m_Sprite.setRotation(rads * 180 / 3.141 - 90);
+	//m_Sprite.setRotation(rads * 180 / 3.141 - 90);
 
 }
 
-Character::Dir dirFromRads(float rads) {
-	float pi = 3.1415926;
-	if (rads > pi / 4 && rads <= 3 * pi / 4) {
-		return Character::Dir::Up;
-	}
-	else if (rads > 3 * pi / 4 && rads <= 5 * pi / 4) {
-		return Character::Dir::Right;
-	}
-	else if (rads > 5 * pi / 4 && rads <= 7 * pi / 4) {
-		return Character::Dir::Down;
-	}
-	else {
-		return Character::Dir::Left;
-	}
 
-}
 
-void PlayableCharacter::activate(float rads) {
+void PlayableCharacter::activate(Character::Dir dir) {
 	//rads += 3.1415926;
-	auto dir = dirFromRads(rads);
 	int vecposy = m_Position.y / Engine::getTileSize();
 	int vecposx = m_Position.x / Engine::getTileSize();
 	//std::cout << "at " << vecposx << ", " << vecposy << "; ";
